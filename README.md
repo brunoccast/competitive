@@ -1,3 +1,4 @@
 # Competitive
 
-My solutions for problems of different online judge systems
+My solutions for problems of different 
+online judge systems & competitions
