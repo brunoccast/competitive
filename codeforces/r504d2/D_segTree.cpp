@@ -51,9 +51,14 @@ int query(int node, int lo, int hi, int qlo, int qhi)
 		return segtree[node];
 
 	int left=node<<1, right=left+1, mid=(lo+hi)/2;
+
+	if(qhi <= mid)
+		return query(left,lo,mid,qlo,qhi);
+	else if(qlo > mid)
+		return query(right,mid+1,hi,qlo,qhi);
 	
-	int res_left = query(left,lo,mid,qlo,qhi);
-	int res_right = query(right,mid+1,hi,qlo,qhi);
+	int res_left = query(left,lo,mid,qlo,mid);
+	int res_right = query(right,mid+1,hi,mid+1,qhi);
 
 	return min(res_left, res_right);
 }
